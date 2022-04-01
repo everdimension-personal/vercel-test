@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/everdimension-personal/vercel-test/issues"
   },
-  "homepage": "https://github.com/everdimension-personal/vercel-test#readme"
+  "homepage": "https://github.com/everdimension-personal/vercel-test#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
