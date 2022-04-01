@@ -66,6 +66,8 @@ app.get("/test", async function (req, res) {
 });
 app.get("/:country", async function (req, res) {
   const key = req.params.country.toLowerCase();
+  res.send('lol');
+  return;
 
   const country = getCountry(key);
   if (!country) {
