@@ -1,8 +1,8 @@
 const path = require("path");
 const express = require("express");
 const ejs = require("ejs");
-const countriesDict = require("./assets/countries-dict.json");
-const codeToCountry = require("./assets/code-to-country.json");
+const countriesDict = require("../assets/countries-dict.json");
+const codeToCountry = require("../assets/code-to-country.json");
 
 const app = express();
 
@@ -15,7 +15,7 @@ function getCountry(key) {
 }
 
 app.get("/", async function (req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "../index.html"));
 });
 
 function createMetaTag({ name, property, content }) {
@@ -66,12 +66,10 @@ app.get("/test", async function (req, res) {
 });
 app.get("/:country", async function (req, res) {
   const key = req.params.country.toLowerCase();
-  res.send('lol');
-  return;
 
   const country = getCountry(key);
   if (!country) {
-    res.sendFile(path.join(__dirname, "404.html"));
+    res.sendFile(path.join(__dirname, "../404.html"));
   } else {
     const pageData = {
       title: country.name,
@@ -82,7 +80,7 @@ app.get("/:country", async function (req, res) {
       }),
     };
     ejs.renderFile(
-      path.join(__dirname, "country.ejs"),
+      path.join(__dirname, "../country.ejs"),
       pageData,
       function (err, str) {
         if (err) {
