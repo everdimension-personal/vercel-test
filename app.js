@@ -61,6 +61,9 @@ function getMetaTagsString({ title, description, url }) {
     .join("\n");
 }
 
+app.get("/test", async function (req, res) {
+  res.send(countriesDict);
+});
 app.get("/:country", async function (req, res) {
   const key = req.params.country.toLowerCase();
 
